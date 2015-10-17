@@ -16,7 +16,7 @@ package com.webonise.proagricrowd.sql.tables;
 @java.lang.SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Users extends org.jooq.impl.TableImpl<com.webonise.proagricrowd.sql.tables.records.UsersRecord> {
 
-	private static final long serialVersionUID = -1798856640;
+	private static final long serialVersionUID = 754779642;
 
 	/**
 	 * The reference instance of <code>proagricrowd.USERS</code>
@@ -50,11 +50,6 @@ public class Users extends org.jooq.impl.TableImpl<com.webonise.proagricrowd.sql
 	 * The column <code>proagricrowd.USERS.USR_TYP_ID</code>.
 	 */
 	public final org.jooq.TableField<com.webonise.proagricrowd.sql.tables.records.UsersRecord, java.lang.Integer> USR_TYP_ID = createField("USR_TYP_ID", org.jooq.impl.SQLDataType.INTEGER.nullable(false), this, "");
-
-	/**
-	 * The column <code>proagricrowd.USERS.USR_ADDR_ID</code>.
-	 */
-	public final org.jooq.TableField<com.webonise.proagricrowd.sql.tables.records.UsersRecord, java.lang.Integer> USR_ADDR_ID = createField("USR_ADDR_ID", org.jooq.impl.SQLDataType.INTEGER.nullable(false), this, "");
 
 	/**
 	 * The column <code>proagricrowd.USERS.USR_ADDR_CREATION_DATE</code>.
