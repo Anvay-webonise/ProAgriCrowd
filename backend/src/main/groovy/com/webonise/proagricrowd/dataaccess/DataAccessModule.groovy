@@ -10,9 +10,6 @@ import org.jooq.DSLContext
 import javax.naming.InitialContext
 import javax.sql.DataSource
 
-/**
- * Created by webonise on 14/8/15.
- */
 @CompileStatic
 class DataAccessModule extends AbstractModule {
 
