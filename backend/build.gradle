@@ -1,16 +1,91 @@
-group 'org.webonise'
+group 'com.webonise'
 version '1.0-SNAPSHOT'
 
 apply plugin: 'groovy'
 apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'war'
+apply plugin: 'org.akhikhl.gretty'
 
-sourceCompatibility = 1.5
+group = "PRoAgriCrowd"
+
+sourceCompatibility = 8
+targetCompatibility = 8
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'org.akhikhl.gretty:gretty:+'
+    }
+}
+
+configurations {
+    all*.exclude group: "org.slf4j", module: "slf4j-nop"
+
+    // Ensure we're not bleeding over
+    runtime.exclude group: "org.slf4j", module: "slf4j-simple"
+    testRuntime.exclude group: "org.slf4j", module: "slf4j-log4j12"
+    grettyRunnerTomcat8.exclude group: "org.slf4j", module: "slf4j-log4j12"
+    all*.resolutionStrategy {
+        force "org.codehaus.groovy:groovy-all:2.4.4"
+    }
+}
 
 repositories {
+    mavenLocal()
     mavenCentral()
+    jcenter()
+    maven {
+        name = "Restlet Maven Repository"
+        url = "http://maven.restlet.com"
+    }
+    maven {
+        name = "Smokejumper It Maven Repository"
+        url = "https://dl.bintray.com/smokejumperit/maven/"
+    }
+}
+
+gretty {
+    servletContainer = 'tomcat8'
+    contextPath = ""
+    serverConfigFile= "${projectDir}/server.xml"
+    contextConfigFile="${projectDir}/context.xml"
+    jvmArgs = ['-Djava.naming.factory.initial=org.apache.naming.java.javaURLContextFactory','-Djava.naming.factory.url.pkgs=org.apache.naming']
 }
 
 dependencies {
     compile 'org.codehaus.groovy:groovy-all:2.3.11'
-    testCompile group: 'junit', name: 'junit', version: '4.11'
+    compile "restling:restling-core:0.0.7"  // https://bintray.com/smokejumperit/maven/restling/view
+
+    //Hibernate dependency
+    compile "org.hibernate:hibernate-core:4.3.11.Final"
+    compile "commons-io:commons-io:2.4"
+    compile 'org.mongodb:mongo-java-driver:3.1.0'
+
+
+    // will go to tomcat classpath
+    def tomcatVersion = "8.0.26"
+    grettyRunnerTomcat8 "com.zaxxer:HikariCP:2.4.0"
+    grettyRunnerTomcat8 "mysql:mysql-connector-java:5.1.6"
+    grettyRunnerTomcat8 "org.apache.tomcat:tomcat-api:$tomcatVersion"
+    grettyRunnerTomcat8 "org.apache.tomcat:tomcat-jdbc:$tomcatVersion"
+    grettyRunnerTomcat8 "org.apache.tomcat:tomcat-dbcp:$tomcatVersion"
+
+
+    // slf4j configuration
+    def slf4jVersion = "[1.7.12,1.8)"
+    def slf4jSimple = "org.slf4j:slf4j-simple:$slf4jVersion"
+    def slf4jLog4j = "org.slf4j:slf4j-log4j12:$slf4jVersion"
+
+    // Enable simply logging to stdout in testing
+    testRuntime slf4jSimple
+    // Just admit that we're using log4j in production
+    runtime slf4jLog4j
 }
+
+["compileJava","compileGroovy"].each { taskName -> this."$taskName" {
+    options.compilerArgs << "-Xlint:all" // Have lint-free code!
+    options.compilerArgs << "-parameters" // Enables https://github.com/FasterXML/jackson-module-parameter-names
+} }
