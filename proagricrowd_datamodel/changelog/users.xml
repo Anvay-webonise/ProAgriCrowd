@@ -23,9 +23,6 @@
             <column name="USR_TYP_ID" type="int(11)">
                 <constraints nullable="false"/>
             </column>
-            <column name="USR_ADDR_ID" type="int(11)">
-                <constraints nullable="false"/>
-            </column>
             <column name="USR_ADDR_CREATION_DATE" type="datetime" defaultValue="NOW()">
                 <constraints nullable="false"/>
             </column>
