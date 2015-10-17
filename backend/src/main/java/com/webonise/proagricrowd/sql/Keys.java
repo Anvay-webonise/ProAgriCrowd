@@ -21,20 +21,19 @@ public class Keys {
 	// IDENTITY definitions
 	// -------------------------------------------------------------------------
 
-	public static final org.jooq.Identity<com.webonise.proagricrowd.sql.tables.records.AddressesRecord, java.lang.Integer> IDENTITY_ADDRESSES = Identities0.IDENTITY_ADDRESSES;
 	public static final org.jooq.Identity<com.webonise.proagricrowd.sql.tables.records.EventsRecord, java.lang.Integer> IDENTITY_EVENTS = Identities0.IDENTITY_EVENTS;
 	public static final org.jooq.Identity<com.webonise.proagricrowd.sql.tables.records.IndividualsRecord, java.lang.Integer> IDENTITY_INDIVIDUALS = Identities0.IDENTITY_INDIVIDUALS;
-	public static final org.jooq.Identity<com.webonise.proagricrowd.sql.tables.records.UsersRecord, java.lang.Integer> IDENTITY_USERS = Identities0.IDENTITY_USERS;
+	public static final org.jooq.Identity<com.webonise.proagricrowd.sql.tables.records.SuccessStoriesRecord, java.lang.Integer> IDENTITY_SUCCESS_STORIES = Identities0.IDENTITY_SUCCESS_STORIES;
 	public static final org.jooq.Identity<com.webonise.proagricrowd.sql.tables.records.UsersTypeRecord, java.lang.Integer> IDENTITY_USERS_TYPE = Identities0.IDENTITY_USERS_TYPE;
 
 	// -------------------------------------------------------------------------
 	// UNIQUE and PRIMARY KEY definitions
 	// -------------------------------------------------------------------------
 
-	public static final org.jooq.UniqueKey<com.webonise.proagricrowd.sql.tables.records.AddressesRecord> KEY_ADDRESSES_PRIMARY = UniqueKeys0.KEY_ADDRESSES_PRIMARY;
 	public static final org.jooq.UniqueKey<com.webonise.proagricrowd.sql.tables.records.DatabasechangeloglockRecord> KEY_DATABASECHANGELOGLOCK_PRIMARY = UniqueKeys0.KEY_DATABASECHANGELOGLOCK_PRIMARY;
 	public static final org.jooq.UniqueKey<com.webonise.proagricrowd.sql.tables.records.EventsRecord> KEY_EVENTS_PRIMARY = UniqueKeys0.KEY_EVENTS_PRIMARY;
 	public static final org.jooq.UniqueKey<com.webonise.proagricrowd.sql.tables.records.IndividualsRecord> KEY_INDIVIDUALS_PRIMARY = UniqueKeys0.KEY_INDIVIDUALS_PRIMARY;
+	public static final org.jooq.UniqueKey<com.webonise.proagricrowd.sql.tables.records.SuccessStoriesRecord> KEY_SUCCESS_STORIES_PRIMARY = UniqueKeys0.KEY_SUCCESS_STORIES_PRIMARY;
 	public static final org.jooq.UniqueKey<com.webonise.proagricrowd.sql.tables.records.UsersRecord> KEY_USERS_PRIMARY = UniqueKeys0.KEY_USERS_PRIMARY;
 	public static final org.jooq.UniqueKey<com.webonise.proagricrowd.sql.tables.records.UsersTypeRecord> KEY_USERS_TYPE_PRIMARY = UniqueKeys0.KEY_USERS_TYPE_PRIMARY;
 
@@ -42,36 +41,35 @@ public class Keys {
 	// FOREIGN KEY definitions
 	// -------------------------------------------------------------------------
 
-	public static final org.jooq.ForeignKey<com.webonise.proagricrowd.sql.tables.records.IndividualsRecord, com.webonise.proagricrowd.sql.tables.records.AddressesRecord> FK_ADDRESS_ID = ForeignKeys0.FK_ADDRESS_ID;
+	public static final org.jooq.ForeignKey<com.webonise.proagricrowd.sql.tables.records.EventsRecord, com.webonise.proagricrowd.sql.tables.records.UsersRecord> FK_USER_ID = ForeignKeys0.FK_USER_ID;
+	public static final org.jooq.ForeignKey<com.webonise.proagricrowd.sql.tables.records.SuccessStoriesRecord, com.webonise.proagricrowd.sql.tables.records.EventsRecord> FK_EVENT_ID = ForeignKeys0.FK_EVENT_ID;
 	public static final org.jooq.ForeignKey<com.webonise.proagricrowd.sql.tables.records.UsersRecord, com.webonise.proagricrowd.sql.tables.records.IndividualsRecord> FK_USR_ID = ForeignKeys0.FK_USR_ID;
 	public static final org.jooq.ForeignKey<com.webonise.proagricrowd.sql.tables.records.UsersRecord, com.webonise.proagricrowd.sql.tables.records.UsersTypeRecord> FK_USR_TYPE = ForeignKeys0.FK_USR_TYPE;
-	public static final org.jooq.ForeignKey<com.webonise.proagricrowd.sql.tables.records.UsersRecord, com.webonise.proagricrowd.sql.tables.records.AddressesRecord> FK_ADDR_ID = ForeignKeys0.FK_ADDR_ID;
 
 	// -------------------------------------------------------------------------
 	// [#1459] distribute members to avoid static initialisers > 64kb
 	// -------------------------------------------------------------------------
 
 	private static class Identities0 extends org.jooq.impl.AbstractKeys {
-		public static org.jooq.Identity<com.webonise.proagricrowd.sql.tables.records.AddressesRecord, java.lang.Integer> IDENTITY_ADDRESSES = createIdentity(com.webonise.proagricrowd.sql.tables.Addresses.ADDRESSES, com.webonise.proagricrowd.sql.tables.Addresses.ADDRESSES.ADDR_ID);
 		public static org.jooq.Identity<com.webonise.proagricrowd.sql.tables.records.EventsRecord, java.lang.Integer> IDENTITY_EVENTS = createIdentity(com.webonise.proagricrowd.sql.tables.Events.EVENTS, com.webonise.proagricrowd.sql.tables.Events.EVENTS.EVENT_ID);
 		public static org.jooq.Identity<com.webonise.proagricrowd.sql.tables.records.IndividualsRecord, java.lang.Integer> IDENTITY_INDIVIDUALS = createIdentity(com.webonise.proagricrowd.sql.tables.Individuals.INDIVIDUALS, com.webonise.proagricrowd.sql.tables.Individuals.INDIVIDUALS.IND_ID);
-		public static org.jooq.Identity<com.webonise.proagricrowd.sql.tables.records.UsersRecord, java.lang.Integer> IDENTITY_USERS = createIdentity(com.webonise.proagricrowd.sql.tables.Users.USERS, com.webonise.proagricrowd.sql.tables.Users.USERS.USR_ID);
+		public static org.jooq.Identity<com.webonise.proagricrowd.sql.tables.records.SuccessStoriesRecord, java.lang.Integer> IDENTITY_SUCCESS_STORIES = createIdentity(com.webonise.proagricrowd.sql.tables.SuccessStories.SUCCESS_STORIES, com.webonise.proagricrowd.sql.tables.SuccessStories.SUCCESS_STORIES.SS_ID);
 		public static org.jooq.Identity<com.webonise.proagricrowd.sql.tables.records.UsersTypeRecord, java.lang.Integer> IDENTITY_USERS_TYPE = createIdentity(com.webonise.proagricrowd.sql.tables.UsersType.USERS_TYPE, com.webonise.proagricrowd.sql.tables.UsersType.USERS_TYPE.USR_TYP_ID);
 	}
 
 	private static class UniqueKeys0 extends org.jooq.impl.AbstractKeys {
-		public static final org.jooq.UniqueKey<com.webonise.proagricrowd.sql.tables.records.AddressesRecord> KEY_ADDRESSES_PRIMARY = createUniqueKey(com.webonise.proagricrowd.sql.tables.Addresses.ADDRESSES, com.webonise.proagricrowd.sql.tables.Addresses.ADDRESSES.ADDR_ID);
 		public static final org.jooq.UniqueKey<com.webonise.proagricrowd.sql.tables.records.DatabasechangeloglockRecord> KEY_DATABASECHANGELOGLOCK_PRIMARY = createUniqueKey(com.webonise.proagricrowd.sql.tables.Databasechangeloglock.DATABASECHANGELOGLOCK, com.webonise.proagricrowd.sql.tables.Databasechangeloglock.DATABASECHANGELOGLOCK.ID);
 		public static final org.jooq.UniqueKey<com.webonise.proagricrowd.sql.tables.records.EventsRecord> KEY_EVENTS_PRIMARY = createUniqueKey(com.webonise.proagricrowd.sql.tables.Events.EVENTS, com.webonise.proagricrowd.sql.tables.Events.EVENTS.EVENT_ID);
 		public static final org.jooq.UniqueKey<com.webonise.proagricrowd.sql.tables.records.IndividualsRecord> KEY_INDIVIDUALS_PRIMARY = createUniqueKey(com.webonise.proagricrowd.sql.tables.Individuals.INDIVIDUALS, com.webonise.proagricrowd.sql.tables.Individuals.INDIVIDUALS.IND_ID);
+		public static final org.jooq.UniqueKey<com.webonise.proagricrowd.sql.tables.records.SuccessStoriesRecord> KEY_SUCCESS_STORIES_PRIMARY = createUniqueKey(com.webonise.proagricrowd.sql.tables.SuccessStories.SUCCESS_STORIES, com.webonise.proagricrowd.sql.tables.SuccessStories.SUCCESS_STORIES.SS_ID);
 		public static final org.jooq.UniqueKey<com.webonise.proagricrowd.sql.tables.records.UsersRecord> KEY_USERS_PRIMARY = createUniqueKey(com.webonise.proagricrowd.sql.tables.Users.USERS, com.webonise.proagricrowd.sql.tables.Users.USERS.USR_ID);
 		public static final org.jooq.UniqueKey<com.webonise.proagricrowd.sql.tables.records.UsersTypeRecord> KEY_USERS_TYPE_PRIMARY = createUniqueKey(com.webonise.proagricrowd.sql.tables.UsersType.USERS_TYPE, com.webonise.proagricrowd.sql.tables.UsersType.USERS_TYPE.USR_TYP_ID);
 	}
 
 	private static class ForeignKeys0 extends org.jooq.impl.AbstractKeys {
-		public static final org.jooq.ForeignKey<com.webonise.proagricrowd.sql.tables.records.IndividualsRecord, com.webonise.proagricrowd.sql.tables.records.AddressesRecord> FK_ADDRESS_ID = createForeignKey(com.webonise.proagricrowd.sql.Keys.KEY_ADDRESSES_PRIMARY, com.webonise.proagricrowd.sql.tables.Individuals.INDIVIDUALS, com.webonise.proagricrowd.sql.tables.Individuals.INDIVIDUALS.IND_ADDRESS);
+		public static final org.jooq.ForeignKey<com.webonise.proagricrowd.sql.tables.records.EventsRecord, com.webonise.proagricrowd.sql.tables.records.UsersRecord> FK_USER_ID = createForeignKey(com.webonise.proagricrowd.sql.Keys.KEY_USERS_PRIMARY, com.webonise.proagricrowd.sql.tables.Events.EVENTS, com.webonise.proagricrowd.sql.tables.Events.EVENTS.EVENT_USR_ID);
+		public static final org.jooq.ForeignKey<com.webonise.proagricrowd.sql.tables.records.SuccessStoriesRecord, com.webonise.proagricrowd.sql.tables.records.EventsRecord> FK_EVENT_ID = createForeignKey(com.webonise.proagricrowd.sql.Keys.KEY_EVENTS_PRIMARY, com.webonise.proagricrowd.sql.tables.SuccessStories.SUCCESS_STORIES, com.webonise.proagricrowd.sql.tables.SuccessStories.SUCCESS_STORIES.SS_EVENT_ID);
 		public static final org.jooq.ForeignKey<com.webonise.proagricrowd.sql.tables.records.UsersRecord, com.webonise.proagricrowd.sql.tables.records.IndividualsRecord> FK_USR_ID = createForeignKey(com.webonise.proagricrowd.sql.Keys.KEY_INDIVIDUALS_PRIMARY, com.webonise.proagricrowd.sql.tables.Users.USERS, com.webonise.proagricrowd.sql.tables.Users.USERS.USR_ID);
 		public static final org.jooq.ForeignKey<com.webonise.proagricrowd.sql.tables.records.UsersRecord, com.webonise.proagricrowd.sql.tables.records.UsersTypeRecord> FK_USR_TYPE = createForeignKey(com.webonise.proagricrowd.sql.Keys.KEY_USERS_TYPE_PRIMARY, com.webonise.proagricrowd.sql.tables.Users.USERS, com.webonise.proagricrowd.sql.tables.Users.USERS.USR_TYP_ID);
-		public static final org.jooq.ForeignKey<com.webonise.proagricrowd.sql.tables.records.UsersRecord, com.webonise.proagricrowd.sql.tables.records.AddressesRecord> FK_ADDR_ID = createForeignKey(com.webonise.proagricrowd.sql.Keys.KEY_ADDRESSES_PRIMARY, com.webonise.proagricrowd.sql.tables.Users.USERS, com.webonise.proagricrowd.sql.tables.Users.USERS.USR_ADDR_ID);
 	}
 }

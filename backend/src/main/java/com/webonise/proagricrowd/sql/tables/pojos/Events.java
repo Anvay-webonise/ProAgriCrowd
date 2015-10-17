@@ -16,16 +16,20 @@ package com.webonise.proagricrowd.sql.tables.pojos;
 @java.lang.SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Events implements java.io.Serializable {
 
-	private static final long serialVersionUID = -1964447787;
+	private static final long serialVersionUID = -798119931;
 
 	private java.lang.Integer  eventId;
 	private java.lang.String   eventTitle;
 	private java.lang.String   eventDesc;
 	private java.lang.String   eventLocation;
+	private java.lang.Integer  eventUsrId;
 	private java.lang.Integer  eventOrganiser;
-	private java.lang.Integer  eventExpert;
+	private java.lang.String   eventExpert;
 	private java.lang.Integer  eventEstimatedCost;
+	private java.lang.Integer  eventFunds;
 	private java.sql.Timestamp eventDate;
+	private java.lang.Boolean  eventIscomplete;
+	private java.sql.Timestamp eventCompletionDate;
 	private java.sql.Timestamp eventCreationDate;
 
 	public Events() {}
@@ -35,20 +39,28 @@ public class Events implements java.io.Serializable {
 		java.lang.String   eventTitle,
 		java.lang.String   eventDesc,
 		java.lang.String   eventLocation,
+		java.lang.Integer  eventUsrId,
 		java.lang.Integer  eventOrganiser,
-		java.lang.Integer  eventExpert,
+		java.lang.String   eventExpert,
 		java.lang.Integer  eventEstimatedCost,
+		java.lang.Integer  eventFunds,
 		java.sql.Timestamp eventDate,
+		java.lang.Boolean  eventIscomplete,
+		java.sql.Timestamp eventCompletionDate,
 		java.sql.Timestamp eventCreationDate
 	) {
 		this.eventId = eventId;
 		this.eventTitle = eventTitle;
 		this.eventDesc = eventDesc;
 		this.eventLocation = eventLocation;
+		this.eventUsrId = eventUsrId;
 		this.eventOrganiser = eventOrganiser;
 		this.eventExpert = eventExpert;
 		this.eventEstimatedCost = eventEstimatedCost;
+		this.eventFunds = eventFunds;
 		this.eventDate = eventDate;
+		this.eventIscomplete = eventIscomplete;
+		this.eventCompletionDate = eventCompletionDate;
 		this.eventCreationDate = eventCreationDate;
 	}
 
@@ -84,6 +96,14 @@ public class Events implements java.io.Serializable {
 		this.eventLocation = eventLocation;
 	}
 
+	public java.lang.Integer getEventUsrId() {
+		return this.eventUsrId;
+	}
+
+	public void setEventUsrId(java.lang.Integer eventUsrId) {
+		this.eventUsrId = eventUsrId;
+	}
+
 	public java.lang.Integer getEventOrganiser() {
 		return this.eventOrganiser;
 	}
@@ -92,11 +112,11 @@ public class Events implements java.io.Serializable {
 		this.eventOrganiser = eventOrganiser;
 	}
 
-	public java.lang.Integer getEventExpert() {
+	public java.lang.String getEventExpert() {
 		return this.eventExpert;
 	}
 
-	public void setEventExpert(java.lang.Integer eventExpert) {
+	public void setEventExpert(java.lang.String eventExpert) {
 		this.eventExpert = eventExpert;
 	}
 
@@ -108,12 +128,36 @@ public class Events implements java.io.Serializable {
 		this.eventEstimatedCost = eventEstimatedCost;
 	}
 
+	public java.lang.Integer getEventFunds() {
+		return this.eventFunds;
+	}
+
+	public void setEventFunds(java.lang.Integer eventFunds) {
+		this.eventFunds = eventFunds;
+	}
+
 	public java.sql.Timestamp getEventDate() {
 		return this.eventDate;
 	}
 
 	public void setEventDate(java.sql.Timestamp eventDate) {
 		this.eventDate = eventDate;
+	}
+
+	public java.lang.Boolean getEventIscomplete() {
+		return this.eventIscomplete;
+	}
+
+	public void setEventIscomplete(java.lang.Boolean eventIscomplete) {
+		this.eventIscomplete = eventIscomplete;
+	}
+
+	public java.sql.Timestamp getEventCompletionDate() {
+		return this.eventCompletionDate;
+	}
+
+	public void setEventCompletionDate(java.sql.Timestamp eventCompletionDate) {
+		this.eventCompletionDate = eventCompletionDate;
 	}
 
 	public java.sql.Timestamp getEventCreationDate() {
@@ -157,6 +201,12 @@ public class Events implements java.io.Serializable {
 		}
 		else if (!eventLocation.equals(other.eventLocation))
 			return false;
+		if (eventUsrId == null) {
+			if (other.eventUsrId != null)
+				return false;
+		}
+		else if (!eventUsrId.equals(other.eventUsrId))
+			return false;
 		if (eventOrganiser == null) {
 			if (other.eventOrganiser != null)
 				return false;
@@ -175,11 +225,29 @@ public class Events implements java.io.Serializable {
 		}
 		else if (!eventEstimatedCost.equals(other.eventEstimatedCost))
 			return false;
+		if (eventFunds == null) {
+			if (other.eventFunds != null)
+				return false;
+		}
+		else if (!eventFunds.equals(other.eventFunds))
+			return false;
 		if (eventDate == null) {
 			if (other.eventDate != null)
 				return false;
 		}
 		else if (!eventDate.equals(other.eventDate))
+			return false;
+		if (eventIscomplete == null) {
+			if (other.eventIscomplete != null)
+				return false;
+		}
+		else if (!eventIscomplete.equals(other.eventIscomplete))
+			return false;
+		if (eventCompletionDate == null) {
+			if (other.eventCompletionDate != null)
+				return false;
+		}
+		else if (!eventCompletionDate.equals(other.eventCompletionDate))
 			return false;
 		if (eventCreationDate == null) {
 			if (other.eventCreationDate != null)
@@ -198,10 +266,14 @@ public class Events implements java.io.Serializable {
 		result = prime * result + ((eventTitle == null) ? 0 : eventTitle.hashCode());
 		result = prime * result + ((eventDesc == null) ? 0 : eventDesc.hashCode());
 		result = prime * result + ((eventLocation == null) ? 0 : eventLocation.hashCode());
+		result = prime * result + ((eventUsrId == null) ? 0 : eventUsrId.hashCode());
 		result = prime * result + ((eventOrganiser == null) ? 0 : eventOrganiser.hashCode());
 		result = prime * result + ((eventExpert == null) ? 0 : eventExpert.hashCode());
 		result = prime * result + ((eventEstimatedCost == null) ? 0 : eventEstimatedCost.hashCode());
+		result = prime * result + ((eventFunds == null) ? 0 : eventFunds.hashCode());
 		result = prime * result + ((eventDate == null) ? 0 : eventDate.hashCode());
+		result = prime * result + ((eventIscomplete == null) ? 0 : eventIscomplete.hashCode());
+		result = prime * result + ((eventCompletionDate == null) ? 0 : eventCompletionDate.hashCode());
 		result = prime * result + ((eventCreationDate == null) ? 0 : eventCreationDate.hashCode());
 		return result;
 	}

@@ -16,7 +16,7 @@ package com.webonise.proagricrowd.sql.tables;
 @java.lang.SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Events extends org.jooq.impl.TableImpl<com.webonise.proagricrowd.sql.tables.records.EventsRecord> {
 
-	private static final long serialVersionUID = 1352860254;
+	private static final long serialVersionUID = -1625451251;
 
 	/**
 	 * The reference instance of <code>proagricrowd.EVENTS</code>
@@ -52,6 +52,11 @@ public class Events extends org.jooq.impl.TableImpl<com.webonise.proagricrowd.sq
 	public final org.jooq.TableField<com.webonise.proagricrowd.sql.tables.records.EventsRecord, java.lang.String> EVENT_LOCATION = createField("EVENT_LOCATION", org.jooq.impl.SQLDataType.VARCHAR.length(255).nullable(false), this, "");
 
 	/**
+	 * The column <code>proagricrowd.EVENTS.EVENT_USR_ID</code>.
+	 */
+	public final org.jooq.TableField<com.webonise.proagricrowd.sql.tables.records.EventsRecord, java.lang.Integer> EVENT_USR_ID = createField("EVENT_USR_ID", org.jooq.impl.SQLDataType.INTEGER.nullable(false), this, "");
+
+	/**
 	 * The column <code>proagricrowd.EVENTS.EVENT_ORGANISER</code>.
 	 */
 	public final org.jooq.TableField<com.webonise.proagricrowd.sql.tables.records.EventsRecord, java.lang.Integer> EVENT_ORGANISER = createField("EVENT_ORGANISER", org.jooq.impl.SQLDataType.INTEGER.nullable(false), this, "");
@@ -59,7 +64,7 @@ public class Events extends org.jooq.impl.TableImpl<com.webonise.proagricrowd.sq
 	/**
 	 * The column <code>proagricrowd.EVENTS.EVENT_EXPERT</code>.
 	 */
-	public final org.jooq.TableField<com.webonise.proagricrowd.sql.tables.records.EventsRecord, java.lang.Integer> EVENT_EXPERT = createField("EVENT_EXPERT", org.jooq.impl.SQLDataType.INTEGER.nullable(false), this, "");
+	public final org.jooq.TableField<com.webonise.proagricrowd.sql.tables.records.EventsRecord, java.lang.String> EVENT_EXPERT = createField("EVENT_EXPERT", org.jooq.impl.SQLDataType.VARCHAR.length(255).nullable(false), this, "");
 
 	/**
 	 * The column <code>proagricrowd.EVENTS.EVENT_ESTIMATED_COST</code>.
@@ -67,9 +72,24 @@ public class Events extends org.jooq.impl.TableImpl<com.webonise.proagricrowd.sq
 	public final org.jooq.TableField<com.webonise.proagricrowd.sql.tables.records.EventsRecord, java.lang.Integer> EVENT_ESTIMATED_COST = createField("EVENT_ESTIMATED_COST", org.jooq.impl.SQLDataType.INTEGER.nullable(false), this, "");
 
 	/**
+	 * The column <code>proagricrowd.EVENTS.EVENT_FUNDS</code>.
+	 */
+	public final org.jooq.TableField<com.webonise.proagricrowd.sql.tables.records.EventsRecord, java.lang.Integer> EVENT_FUNDS = createField("EVENT_FUNDS", org.jooq.impl.SQLDataType.INTEGER, this, "");
+
+	/**
 	 * The column <code>proagricrowd.EVENTS.EVENT_DATE</code>.
 	 */
 	public final org.jooq.TableField<com.webonise.proagricrowd.sql.tables.records.EventsRecord, java.sql.Timestamp> EVENT_DATE = createField("EVENT_DATE", org.jooq.impl.SQLDataType.TIMESTAMP, this, "");
+
+	/**
+	 * The column <code>proagricrowd.EVENTS.EVENT_ISCOMPLETE</code>.
+	 */
+	public final org.jooq.TableField<com.webonise.proagricrowd.sql.tables.records.EventsRecord, java.lang.Boolean> EVENT_ISCOMPLETE = createField("EVENT_ISCOMPLETE", org.jooq.impl.SQLDataType.BIT, this, "");
+
+	/**
+	 * The column <code>proagricrowd.EVENTS.EVENT_COMPLETION_DATE</code>.
+	 */
+	public final org.jooq.TableField<com.webonise.proagricrowd.sql.tables.records.EventsRecord, java.sql.Timestamp> EVENT_COMPLETION_DATE = createField("EVENT_COMPLETION_DATE", org.jooq.impl.SQLDataType.TIMESTAMP, this, "");
 
 	/**
 	 * The column <code>proagricrowd.EVENTS.EVENT_CREATION_DATE</code>.
@@ -120,6 +140,14 @@ public class Events extends org.jooq.impl.TableImpl<com.webonise.proagricrowd.sq
 	@Override
 	public java.util.List<org.jooq.UniqueKey<com.webonise.proagricrowd.sql.tables.records.EventsRecord>> getKeys() {
 		return java.util.Arrays.<org.jooq.UniqueKey<com.webonise.proagricrowd.sql.tables.records.EventsRecord>>asList(com.webonise.proagricrowd.sql.Keys.KEY_EVENTS_PRIMARY);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public java.util.List<org.jooq.ForeignKey<com.webonise.proagricrowd.sql.tables.records.EventsRecord, ?>> getReferences() {
+		return java.util.Arrays.<org.jooq.ForeignKey<com.webonise.proagricrowd.sql.tables.records.EventsRecord, ?>>asList(com.webonise.proagricrowd.sql.Keys.FK_USER_ID);
 	}
 
 	/**

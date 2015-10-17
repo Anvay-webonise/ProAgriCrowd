@@ -16,7 +16,7 @@ package com.webonise.proagricrowd.sql;
 @java.lang.SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Proagricrowd extends org.jooq.impl.SchemaImpl {
 
-	private static final long serialVersionUID = -1723566956;
+	private static final long serialVersionUID = 1459852181;
 
 	/**
 	 * The reference instance of <code>proagricrowd</code>
@@ -39,11 +39,11 @@ public class Proagricrowd extends org.jooq.impl.SchemaImpl {
 
 	private final java.util.List<org.jooq.Table<?>> getTables0() {
 		return java.util.Arrays.<org.jooq.Table<?>>asList(
-			com.webonise.proagricrowd.sql.tables.Addresses.ADDRESSES,
 			com.webonise.proagricrowd.sql.tables.Databasechangelog.DATABASECHANGELOG,
 			com.webonise.proagricrowd.sql.tables.Databasechangeloglock.DATABASECHANGELOGLOCK,
 			com.webonise.proagricrowd.sql.tables.Events.EVENTS,
 			com.webonise.proagricrowd.sql.tables.Individuals.INDIVIDUALS,
+			com.webonise.proagricrowd.sql.tables.SuccessStories.SUCCESS_STORIES,
 			com.webonise.proagricrowd.sql.tables.Users.USERS,
 			com.webonise.proagricrowd.sql.tables.UsersType.USERS_TYPE);
 	}
