@@ -1,4 +1,4 @@
-package com.webonise.proagricrowd.resources.meta.expert
+package com.webonise.proagricrowd.resources.expert
 
 import com.google.inject.Inject
 import com.webonise.proagricrowd.dao.interfaces.ExpertDao
