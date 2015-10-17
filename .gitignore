@@ -13,3 +13,4 @@ gradle.properties
 
 #Ignore idea folder
 .idea
+backend/.idea
