@@ -9,10 +9,6 @@ import org.jooq.impl.DSL
 
 import javax.sql.DataSource
 
-
-/**
- * Created by Webonise on 24/08/15.
- */
 @CompileStatic
 class DSLContextProvider implements Provider<DSLContext> {
 

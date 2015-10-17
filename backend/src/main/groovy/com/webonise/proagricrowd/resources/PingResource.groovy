@@ -1,4 +1,4 @@
-package com.webonise.proagricrowd.resources.meta
+package com.webonise.proagricrowd.resources
 
 import groovy.transform.CompileStatic
 import groovy.util.logging.Slf4j
