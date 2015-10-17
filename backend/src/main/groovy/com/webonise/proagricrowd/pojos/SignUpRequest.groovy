@@ -4,5 +4,6 @@ class SignUpRequest {
     String username
     String password
     String email
-    int mobile_no
+    int user_type
+    String mobile_no
 }
