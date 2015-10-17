@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd
+    http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <changeSet author="sudarshan" id="usersTable">
+        <tagDatabase tag="before_users_table"/>
+    </changeSet>
+    <changeSet author="sudarshan" id="createTableUsersTable" dbms="mysql">
+        <createTable tableName="USERS">
+            <column name="USR_ID" type="int(11)" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="USR_ID"/>
+            </column>
+            <column name="USR_NAME" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="USR_TYP_ID" type="int(11)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="USR_ADDR_ID" type="int(11)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="USR_EVENT_ID" type="int(11)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="USR_ADDR_CREATION_DATE" type="datetime" defaultValue="NOW()">
+                <constraints nullable="false"/>
+            </column>
+
+        </createTable>
+        <addForeignKeyConstraint constraintName="FK_USR_ID"
+                                 baseTableName="USERS"
+                                 baseColumnNames="USR_ID"
+                                 referencedTableName="INDIVIDUALS"
+                                 referencedColumnNames="IND_ID"/>
+        <addForeignKeyConstraint constraintName="FK_USR_TYPE"
+                                 baseTableName="USERS"
+                                 baseColumnNames="USR_TYP_ID"
+                                 referencedTableName="USERS_TYPE"
+                                 referencedColumnNames="USR_TYP_ID"/>
+        <addForeignKeyConstraint constraintName="FK_ADDR_ID"
+                                 baseTableName="USERS"
+                                 baseColumnNames="USR_ADDR_ID"
+                                 referencedTableName="ADDRESSES"
+                                 referencedColumnNames="ADDR_ID"/>
+    </changeSet>
+
+</databaseChangeLog>
