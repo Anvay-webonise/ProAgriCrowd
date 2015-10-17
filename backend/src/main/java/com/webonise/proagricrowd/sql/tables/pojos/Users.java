@@ -16,13 +16,12 @@ package com.webonise.proagricrowd.sql.tables.pojos;
 @java.lang.SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Users implements java.io.Serializable {
 
-	private static final long serialVersionUID = 1585611804;
+	private static final long serialVersionUID = 943559754;
 
 	private java.lang.Integer  usrId;
 	private java.lang.String   usrPassword;
 	private java.lang.String   usrName;
 	private java.lang.Integer  usrTypId;
-	private java.lang.Integer  usrAddrId;
 	private java.sql.Timestamp usrAddrCreationDate;
 
 	public Users() {}
@@ -32,14 +31,12 @@ public class Users implements java.io.Serializable {
 		java.lang.String   usrPassword,
 		java.lang.String   usrName,
 		java.lang.Integer  usrTypId,
-		java.lang.Integer  usrAddrId,
 		java.sql.Timestamp usrAddrCreationDate
 	) {
 		this.usrId = usrId;
 		this.usrPassword = usrPassword;
 		this.usrName = usrName;
 		this.usrTypId = usrTypId;
-		this.usrAddrId = usrAddrId;
 		this.usrAddrCreationDate = usrAddrCreationDate;
 	}
 
@@ -73,14 +70,6 @@ public class Users implements java.io.Serializable {
 
 	public void setUsrTypId(java.lang.Integer usrTypId) {
 		this.usrTypId = usrTypId;
-	}
-
-	public java.lang.Integer getUsrAddrId() {
-		return this.usrAddrId;
-	}
-
-	public void setUsrAddrId(java.lang.Integer usrAddrId) {
-		this.usrAddrId = usrAddrId;
 	}
 
 	public java.sql.Timestamp getUsrAddrCreationDate() {
@@ -124,12 +113,6 @@ public class Users implements java.io.Serializable {
 		}
 		else if (!usrTypId.equals(other.usrTypId))
 			return false;
-		if (usrAddrId == null) {
-			if (other.usrAddrId != null)
-				return false;
-		}
-		else if (!usrAddrId.equals(other.usrAddrId))
-			return false;
 		if (usrAddrCreationDate == null) {
 			if (other.usrAddrCreationDate != null)
 				return false;
@@ -147,7 +130,6 @@ public class Users implements java.io.Serializable {
 		result = prime * result + ((usrPassword == null) ? 0 : usrPassword.hashCode());
 		result = prime * result + ((usrName == null) ? 0 : usrName.hashCode());
 		result = prime * result + ((usrTypId == null) ? 0 : usrTypId.hashCode());
-		result = prime * result + ((usrAddrId == null) ? 0 : usrAddrId.hashCode());
 		result = prime * result + ((usrAddrCreationDate == null) ? 0 : usrAddrCreationDate.hashCode());
 		return result;
 	}
