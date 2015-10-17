@@ -1,2 +1,2 @@
 # ProAgriCrowd
-Crowdfunding portal for agriculture education events
+Crowdfunding portal for agriculture education events.
