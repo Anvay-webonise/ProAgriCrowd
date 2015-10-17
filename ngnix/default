@@ -1,0 +1,55 @@
+# You may add here your
+# server {
+#	...
+# }
+# statements for each of your virtual hosts to this file
+
+##
+# You should look at the following URL's in order to grasp a solid understanding
+# of Nginx configuration files in order to fully unleash the power of Nginx.
+# http://wiki.nginx.org/Pitfalls
+# http://wiki.nginx.org/QuickStart
+# http://wiki.nginx.org/Configuration
+#
+# Generally, you will want to move this file somewhere, and start with a clean
+# file but keep this around for reference. Or just disable in sites-enabled.
+#
+# Please see /usr/share/doc/nginx-doc/examples/ for more detailed examples.
+##
+
+server {
+	listen 80 default_server;
+
+	root /usr/share/nginx/html;
+	index index.html index.htm;
+
+	server_name local.proagricrowd.com;
+	add_header Access-Control-Allow-Origin 'http://local.proagricrowd.com';
+
+	location / {
+		proxy_pass http://127.0.0.1:4568;
+	}
+
+	location /rest {
+		rewrite ^/rest/(.*)$ /$1 break;
+                proxy_pass http://localhost:8080;
+		proxy_redirect     off;
+		proxy_set_header   Host $host;
+	}
+
+	location @rest {
+		proxy_pass http://127.0.0.1:8080;
+	}
+
+	location ~ \.(html|js|css|png|gif) {
+		try_files $uri $uri/ @mapp;
+	}
+
+	location @mapp {
+		proxy_pass http://127.0.0.1:4568;
+		proxy_intercept_errors on;
+		recursive_error_pages on;
+		error_page 404 = @lagecy;
+	}
+}
+
