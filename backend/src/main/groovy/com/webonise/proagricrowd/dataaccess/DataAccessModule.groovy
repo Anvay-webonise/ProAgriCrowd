@@ -1,6 +1,8 @@
 package com.webonise.proagricrowd.dataaccess
 
 import com.google.inject.AbstractModule
+import com.webonise.proagricrowd.dao.impl.UserDaoImpl
+import com.webonise.proagricrowd.dao.interfaces.UserDao
 import com.webonise.proagricrowd.dataaccess.providers.DSLContextProvider
 import groovy.transform.CompileStatic
 import org.jooq.DSLContext
@@ -22,5 +24,6 @@ class DataAccessModule extends AbstractModule {
         assert dataSource : "The datasource can not be null for JNDI ${DATASOURCE_JNDI}"
         bind(DataSource.class).toInstance(dataSource)
         bind(DSLContext.class).toProvider(DSLContextProvider.class)
+        bind(UserDao).to(UserDaoImpl)
     }
 }
