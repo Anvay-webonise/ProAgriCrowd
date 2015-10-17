@@ -6,10 +6,11 @@
                       http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
 
   <!-- You can add more changelog files -->
-  <include file="changelog/adresses.xml"/>
+
   <include file="changelog/individuals.xml"/>
   <include file="changelog/user_type.xml"/>
   <include file="changelog/users.xml"/>
   <include file="changelog/events.xml"/>
+  <include file="changelog/successStories.xml"/>
 </databaseChangeLog>
 
