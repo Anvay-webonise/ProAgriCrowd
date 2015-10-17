@@ -14,34 +14,45 @@
             <column name="IND_ID" type="int(11)" autoIncrement="true">
                 <constraints nullable="false" primaryKey="true" primaryKeyName="IND_ID"/>
             </column>
-            <column name="IND_FNAME" type="varchar(255)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="IND_MNAME" type="varchar(255)">
+            <column name="IND_FNAME" type="varchar(255)" defaultValue="null">
                 <constraints nullable="true"/>
             </column>
-            <column name="IND_LNAME" type="varchar(255)">
-                <constraints nullable="false"/>
+            <column name="IND_MNAME" type="varchar(255)" defaultValue="null">
+                <constraints nullable="true"/>
+            </column>
+            <column name="IND_LNAME" type="varchar(255)" defaultValue="null">
+                <constraints nullable="true"/>
             </column>
             <column name="IND_EMAIL" type="varchar(255)">
                 <constraints nullable="false"/>
             </column>
-            <column name="IND_ADDRESS" type="int(11)">
+            <column name="IND_QUALIFICATION" type="varchar(255)" defaultValue="null">
+                <constraints nullable="true"/>
+            </column>
+            <column name="IND_AREA_OF_EXPERTIES" type="varchar(255)" defaultValue="null">
+                <constraints nullable="true"/>
+            </column>
+            <column name="IND_EXPERINCE_YEARS" type="int(11)" defaultValue="null">
+                <constraints nullable="true"/>
+            </column>
+            <column name="IND_ABOUT_EXPERIENCE" type="longtext" defaultValue="null">
+                <constraints nullable="true"/>
+            </column>
+            <column name="IND_CELLNO" type="int(13) ">
                 <constraints nullable="false"/>
             </column>
-            <column name="IND_CELLNO" type="varchar(30) ">
-                <constraints nullable="false"/>
+            <column name="IND_ADDRESS" type="varchar(255) " defaultValue="null">
+                <constraints nullable="true"/>
+            </column>
+            <column name="IND_CITY" type="varchar(255)" defaultValue="null">
+                <constraints nullable="true"/>
+            </column>
+            <column name="IND_STATE" type="varchar(255)" defaultValue="null">
+                <constraints nullable="true"/>
             </column>
             <column name="IND_CREATION_DATE" type="datetime" defaultValue="NOW()">
                 <constraints nullable="false"/>
             </column>
         </createTable>
-        <addForeignKeyConstraint constraintName="FK_ADDRESS_ID"
-                                 baseTableName="INDIVIDUALS"
-                                 baseColumnNames="IND_ADDRESS"
-                                 referencedTableName="ADDRESSES"
-                                 referencedColumnNames="ADDR_ID"/>
-
-
     </changeSet>
 </databaseChangeLog>

@@ -16,30 +16,30 @@ package com.webonise.proagricrowd.sql.tables.pojos;
 @java.lang.SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Users implements java.io.Serializable {
 
-	private static final long serialVersionUID = -2069579710;
+	private static final long serialVersionUID = 1585611804;
 
 	private java.lang.Integer  usrId;
+	private java.lang.String   usrPassword;
 	private java.lang.String   usrName;
 	private java.lang.Integer  usrTypId;
 	private java.lang.Integer  usrAddrId;
-	private java.lang.Integer  usrEventId;
 	private java.sql.Timestamp usrAddrCreationDate;
 
 	public Users() {}
 
 	public Users(
 		java.lang.Integer  usrId,
+		java.lang.String   usrPassword,
 		java.lang.String   usrName,
 		java.lang.Integer  usrTypId,
 		java.lang.Integer  usrAddrId,
-		java.lang.Integer  usrEventId,
 		java.sql.Timestamp usrAddrCreationDate
 	) {
 		this.usrId = usrId;
+		this.usrPassword = usrPassword;
 		this.usrName = usrName;
 		this.usrTypId = usrTypId;
 		this.usrAddrId = usrAddrId;
-		this.usrEventId = usrEventId;
 		this.usrAddrCreationDate = usrAddrCreationDate;
 	}
 
@@ -49,6 +49,14 @@ public class Users implements java.io.Serializable {
 
 	public void setUsrId(java.lang.Integer usrId) {
 		this.usrId = usrId;
+	}
+
+	public java.lang.String getUsrPassword() {
+		return this.usrPassword;
+	}
+
+	public void setUsrPassword(java.lang.String usrPassword) {
+		this.usrPassword = usrPassword;
 	}
 
 	public java.lang.String getUsrName() {
@@ -75,14 +83,6 @@ public class Users implements java.io.Serializable {
 		this.usrAddrId = usrAddrId;
 	}
 
-	public java.lang.Integer getUsrEventId() {
-		return this.usrEventId;
-	}
-
-	public void setUsrEventId(java.lang.Integer usrEventId) {
-		this.usrEventId = usrEventId;
-	}
-
 	public java.sql.Timestamp getUsrAddrCreationDate() {
 		return this.usrAddrCreationDate;
 	}
@@ -106,6 +106,12 @@ public class Users implements java.io.Serializable {
 		}
 		else if (!usrId.equals(other.usrId))
 			return false;
+		if (usrPassword == null) {
+			if (other.usrPassword != null)
+				return false;
+		}
+		else if (!usrPassword.equals(other.usrPassword))
+			return false;
 		if (usrName == null) {
 			if (other.usrName != null)
 				return false;
@@ -124,12 +130,6 @@ public class Users implements java.io.Serializable {
 		}
 		else if (!usrAddrId.equals(other.usrAddrId))
 			return false;
-		if (usrEventId == null) {
-			if (other.usrEventId != null)
-				return false;
-		}
-		else if (!usrEventId.equals(other.usrEventId))
-			return false;
 		if (usrAddrCreationDate == null) {
 			if (other.usrAddrCreationDate != null)
 				return false;
@@ -144,10 +144,10 @@ public class Users implements java.io.Serializable {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((usrId == null) ? 0 : usrId.hashCode());
+		result = prime * result + ((usrPassword == null) ? 0 : usrPassword.hashCode());
 		result = prime * result + ((usrName == null) ? 0 : usrName.hashCode());
 		result = prime * result + ((usrTypId == null) ? 0 : usrTypId.hashCode());
 		result = prime * result + ((usrAddrId == null) ? 0 : usrAddrId.hashCode());
-		result = prime * result + ((usrEventId == null) ? 0 : usrEventId.hashCode());
 		result = prime * result + ((usrAddrCreationDate == null) ? 0 : usrAddrCreationDate.hashCode());
 		return result;
 	}
