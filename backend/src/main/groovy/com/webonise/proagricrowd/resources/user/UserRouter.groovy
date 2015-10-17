@@ -1,10 +1,9 @@
 package com.webonise.proagricrowd.resources.user
 
+import groovy.transform.CompileStatic
 import restling.restlet.RestlingRouter
 
-/**
- * Created by webonise on 17/10/15.
- */
+@CompileStatic
 class UserRouter extends RestlingRouter{
     @Override
     void init() throws Exception {

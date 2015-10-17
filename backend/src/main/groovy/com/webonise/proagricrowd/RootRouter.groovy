@@ -19,5 +19,6 @@ class RootRouter  extends RestlingRouter {
     @Override
     void init() throws Exception {
         attachSubRouter("/meta", MetaRouter)
+        attachSubRouter("/user", UserRouter)
     }
 }
