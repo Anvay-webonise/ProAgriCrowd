@@ -9,3 +9,8 @@ gradle-app.setting
 .iml
 liquibase.properties
 gradle.properties
+
+
+#Ignore idea folder
+.idea
+backend/.idea
