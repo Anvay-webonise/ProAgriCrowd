@@ -16,7 +16,7 @@ package com.webonise.proagricrowd.sql.tables;
 @java.lang.SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Users extends org.jooq.impl.TableImpl<com.webonise.proagricrowd.sql.tables.records.UsersRecord> {
 
-	private static final long serialVersionUID = -602732768;
+	private static final long serialVersionUID = 754779642;
 
 	/**
 	 * The reference instance of <code>proagricrowd.USERS</code>
@@ -37,6 +37,11 @@ public class Users extends org.jooq.impl.TableImpl<com.webonise.proagricrowd.sql
 	public final org.jooq.TableField<com.webonise.proagricrowd.sql.tables.records.UsersRecord, java.lang.Integer> USR_ID = createField("USR_ID", org.jooq.impl.SQLDataType.INTEGER.nullable(false), this, "");
 
 	/**
+	 * The column <code>proagricrowd.USERS.USR_PASSWORD</code>.
+	 */
+	public final org.jooq.TableField<com.webonise.proagricrowd.sql.tables.records.UsersRecord, java.lang.String> USR_PASSWORD = createField("USR_PASSWORD", org.jooq.impl.SQLDataType.VARCHAR.length(255).nullable(false), this, "");
+
+	/**
 	 * The column <code>proagricrowd.USERS.USR_NAME</code>.
 	 */
 	public final org.jooq.TableField<com.webonise.proagricrowd.sql.tables.records.UsersRecord, java.lang.String> USR_NAME = createField("USR_NAME", org.jooq.impl.SQLDataType.VARCHAR.length(255).nullable(false), this, "");
@@ -45,16 +50,6 @@ public class Users extends org.jooq.impl.TableImpl<com.webonise.proagricrowd.sql
 	 * The column <code>proagricrowd.USERS.USR_TYP_ID</code>.
 	 */
 	public final org.jooq.TableField<com.webonise.proagricrowd.sql.tables.records.UsersRecord, java.lang.Integer> USR_TYP_ID = createField("USR_TYP_ID", org.jooq.impl.SQLDataType.INTEGER.nullable(false), this, "");
-
-	/**
-	 * The column <code>proagricrowd.USERS.USR_ADDR_ID</code>.
-	 */
-	public final org.jooq.TableField<com.webonise.proagricrowd.sql.tables.records.UsersRecord, java.lang.Integer> USR_ADDR_ID = createField("USR_ADDR_ID", org.jooq.impl.SQLDataType.INTEGER.nullable(false), this, "");
-
-	/**
-	 * The column <code>proagricrowd.USERS.USR_EVENT_ID</code>.
-	 */
-	public final org.jooq.TableField<com.webonise.proagricrowd.sql.tables.records.UsersRecord, java.lang.Integer> USR_EVENT_ID = createField("USR_EVENT_ID", org.jooq.impl.SQLDataType.INTEGER, this, "");
 
 	/**
 	 * The column <code>proagricrowd.USERS.USR_ADDR_CREATION_DATE</code>.
@@ -87,14 +82,6 @@ public class Users extends org.jooq.impl.TableImpl<com.webonise.proagricrowd.sql
 	 * {@inheritDoc}
 	 */
 	@Override
-	public org.jooq.Identity<com.webonise.proagricrowd.sql.tables.records.UsersRecord, java.lang.Integer> getIdentity() {
-		return com.webonise.proagricrowd.sql.Keys.IDENTITY_USERS;
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
 	public org.jooq.UniqueKey<com.webonise.proagricrowd.sql.tables.records.UsersRecord> getPrimaryKey() {
 		return com.webonise.proagricrowd.sql.Keys.KEY_USERS_PRIMARY;
 	}
@@ -112,7 +99,7 @@ public class Users extends org.jooq.impl.TableImpl<com.webonise.proagricrowd.sql
 	 */
 	@Override
 	public java.util.List<org.jooq.ForeignKey<com.webonise.proagricrowd.sql.tables.records.UsersRecord, ?>> getReferences() {
-		return java.util.Arrays.<org.jooq.ForeignKey<com.webonise.proagricrowd.sql.tables.records.UsersRecord, ?>>asList(com.webonise.proagricrowd.sql.Keys.FK_USR_ID, com.webonise.proagricrowd.sql.Keys.FK_USR_TYPE, com.webonise.proagricrowd.sql.Keys.FK_ADDR_ID);
+		return java.util.Arrays.<org.jooq.ForeignKey<com.webonise.proagricrowd.sql.tables.records.UsersRecord, ?>>asList(com.webonise.proagricrowd.sql.Keys.FK_USR_ID, com.webonise.proagricrowd.sql.Keys.FK_USR_TYPE);
 	}
 
 	/**

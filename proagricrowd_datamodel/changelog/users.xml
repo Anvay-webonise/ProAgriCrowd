@@ -11,20 +11,17 @@
     </changeSet>
     <changeSet author="sudarshan" id="createTableUsersTable" dbms="mysql">
         <createTable tableName="USERS">
-            <column name="USR_ID" type="int(11)" autoIncrement="true">
+            <column name="USR_ID" type="int(11)">
                 <constraints nullable="false" primaryKey="true" primaryKeyName="USR_ID"/>
+            </column>
+            <column name="USR_PASSWORD" type="varchar(255)">
+                <constraints nullable="false" />
             </column>
             <column name="USR_NAME" type="varchar(255)">
                 <constraints nullable="false"/>
             </column>
             <column name="USR_TYP_ID" type="int(11)">
                 <constraints nullable="false"/>
-            </column>
-            <column name="USR_ADDR_ID" type="int(11)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="USR_EVENT_ID" type="int(11)">
-                <constraints nullable="true"/>
             </column>
             <column name="USR_ADDR_CREATION_DATE" type="datetime" defaultValue="NOW()">
                 <constraints nullable="false"/>
@@ -41,11 +38,6 @@
                                  baseColumnNames="USR_TYP_ID"
                                  referencedTableName="USERS_TYPE"
                                  referencedColumnNames="USR_TYP_ID"/>
-        <addForeignKeyConstraint constraintName="FK_ADDR_ID"
-                                 baseTableName="USERS"
-                                 baseColumnNames="USR_ADDR_ID"
-                                 referencedTableName="ADDRESSES"
-                                 referencedColumnNames="ADDR_ID"/>
     </changeSet>
 
 </databaseChangeLog>

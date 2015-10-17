@@ -6,6 +6,12 @@ gradle-app.setting
 
 # Avoid ignoring Gradle wrapper jar file (.jar files are usually ignored)
 !gradle-wrapper.jar
-.iml
+*.iml
 liquibase.properties
 gradle.properties
+
+
+#Ignore idea folder
+.idea
+backend/.idea
+backend/*.iml

@@ -17,11 +17,6 @@ package com.webonise.proagricrowd.sql;
 public class Tables {
 
 	/**
-	 * The table proagricrowd.ADDRESSES
-	 */
-	public static final com.webonise.proagricrowd.sql.tables.Addresses ADDRESSES = com.webonise.proagricrowd.sql.tables.Addresses.ADDRESSES;
-
-	/**
 	 * The table proagricrowd.DATABASECHANGELOG
 	 */
 	public static final com.webonise.proagricrowd.sql.tables.Databasechangelog DATABASECHANGELOG = com.webonise.proagricrowd.sql.tables.Databasechangelog.DATABASECHANGELOG;
@@ -40,6 +35,11 @@ public class Tables {
 	 * The table proagricrowd.INDIVIDUALS
 	 */
 	public static final com.webonise.proagricrowd.sql.tables.Individuals INDIVIDUALS = com.webonise.proagricrowd.sql.tables.Individuals.INDIVIDUALS;
+
+	/**
+	 * The table proagricrowd.SUCCESS_STORIES
+	 */
+	public static final com.webonise.proagricrowd.sql.tables.SuccessStories SUCCESS_STORIES = com.webonise.proagricrowd.sql.tables.SuccessStories.SUCCESS_STORIES;
 
 	/**
 	 * The table proagricrowd.USERS

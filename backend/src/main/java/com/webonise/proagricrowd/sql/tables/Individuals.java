@@ -16,7 +16,7 @@ package com.webonise.proagricrowd.sql.tables;
 @java.lang.SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Individuals extends org.jooq.impl.TableImpl<com.webonise.proagricrowd.sql.tables.records.IndividualsRecord> {
 
-	private static final long serialVersionUID = -1956299383;
+	private static final long serialVersionUID = 1672792089;
 
 	/**
 	 * The reference instance of <code>proagricrowd.INDIVIDUALS</code>
@@ -39,7 +39,7 @@ public class Individuals extends org.jooq.impl.TableImpl<com.webonise.proagricro
 	/**
 	 * The column <code>proagricrowd.INDIVIDUALS.IND_FNAME</code>.
 	 */
-	public final org.jooq.TableField<com.webonise.proagricrowd.sql.tables.records.IndividualsRecord, java.lang.String> IND_FNAME = createField("IND_FNAME", org.jooq.impl.SQLDataType.VARCHAR.length(255).nullable(false), this, "");
+	public final org.jooq.TableField<com.webonise.proagricrowd.sql.tables.records.IndividualsRecord, java.lang.String> IND_FNAME = createField("IND_FNAME", org.jooq.impl.SQLDataType.VARCHAR.length(255), this, "");
 
 	/**
 	 * The column <code>proagricrowd.INDIVIDUALS.IND_MNAME</code>.
@@ -49,7 +49,7 @@ public class Individuals extends org.jooq.impl.TableImpl<com.webonise.proagricro
 	/**
 	 * The column <code>proagricrowd.INDIVIDUALS.IND_LNAME</code>.
 	 */
-	public final org.jooq.TableField<com.webonise.proagricrowd.sql.tables.records.IndividualsRecord, java.lang.String> IND_LNAME = createField("IND_LNAME", org.jooq.impl.SQLDataType.VARCHAR.length(255).nullable(false), this, "");
+	public final org.jooq.TableField<com.webonise.proagricrowd.sql.tables.records.IndividualsRecord, java.lang.String> IND_LNAME = createField("IND_LNAME", org.jooq.impl.SQLDataType.VARCHAR.length(255), this, "");
 
 	/**
 	 * The column <code>proagricrowd.INDIVIDUALS.IND_EMAIL</code>.
@@ -57,14 +57,44 @@ public class Individuals extends org.jooq.impl.TableImpl<com.webonise.proagricro
 	public final org.jooq.TableField<com.webonise.proagricrowd.sql.tables.records.IndividualsRecord, java.lang.String> IND_EMAIL = createField("IND_EMAIL", org.jooq.impl.SQLDataType.VARCHAR.length(255).nullable(false), this, "");
 
 	/**
-	 * The column <code>proagricrowd.INDIVIDUALS.IND_ADDRESS</code>.
+	 * The column <code>proagricrowd.INDIVIDUALS.IND_QUALIFICATION</code>.
 	 */
-	public final org.jooq.TableField<com.webonise.proagricrowd.sql.tables.records.IndividualsRecord, java.lang.Integer> IND_ADDRESS = createField("IND_ADDRESS", org.jooq.impl.SQLDataType.INTEGER.nullable(false), this, "");
+	public final org.jooq.TableField<com.webonise.proagricrowd.sql.tables.records.IndividualsRecord, java.lang.String> IND_QUALIFICATION = createField("IND_QUALIFICATION", org.jooq.impl.SQLDataType.VARCHAR.length(255), this, "");
+
+	/**
+	 * The column <code>proagricrowd.INDIVIDUALS.IND_AREA_OF_EXPERTIES</code>.
+	 */
+	public final org.jooq.TableField<com.webonise.proagricrowd.sql.tables.records.IndividualsRecord, java.lang.String> IND_AREA_OF_EXPERTIES = createField("IND_AREA_OF_EXPERTIES", org.jooq.impl.SQLDataType.VARCHAR.length(255), this, "");
+
+	/**
+	 * The column <code>proagricrowd.INDIVIDUALS.IND_EXPERINCE_YEARS</code>.
+	 */
+	public final org.jooq.TableField<com.webonise.proagricrowd.sql.tables.records.IndividualsRecord, java.lang.Integer> IND_EXPERINCE_YEARS = createField("IND_EXPERINCE_YEARS", org.jooq.impl.SQLDataType.INTEGER, this, "");
+
+	/**
+	 * The column <code>proagricrowd.INDIVIDUALS.IND_ABOUT_EXPERIENCE</code>.
+	 */
+	public final org.jooq.TableField<com.webonise.proagricrowd.sql.tables.records.IndividualsRecord, java.lang.String> IND_ABOUT_EXPERIENCE = createField("IND_ABOUT_EXPERIENCE", org.jooq.impl.SQLDataType.CLOB, this, "");
 
 	/**
 	 * The column <code>proagricrowd.INDIVIDUALS.IND_CELLNO</code>.
 	 */
-	public final org.jooq.TableField<com.webonise.proagricrowd.sql.tables.records.IndividualsRecord, java.lang.String> IND_CELLNO = createField("IND_CELLNO", org.jooq.impl.SQLDataType.VARCHAR.length(30).nullable(false), this, "");
+	public final org.jooq.TableField<com.webonise.proagricrowd.sql.tables.records.IndividualsRecord, java.lang.Integer> IND_CELLNO = createField("IND_CELLNO", org.jooq.impl.SQLDataType.INTEGER.nullable(false), this, "");
+
+	/**
+	 * The column <code>proagricrowd.INDIVIDUALS.IND_ADDRESS</code>.
+	 */
+	public final org.jooq.TableField<com.webonise.proagricrowd.sql.tables.records.IndividualsRecord, java.lang.String> IND_ADDRESS = createField("IND_ADDRESS", org.jooq.impl.SQLDataType.VARCHAR.length(255), this, "");
+
+	/**
+	 * The column <code>proagricrowd.INDIVIDUALS.IND_CITY</code>.
+	 */
+	public final org.jooq.TableField<com.webonise.proagricrowd.sql.tables.records.IndividualsRecord, java.lang.String> IND_CITY = createField("IND_CITY", org.jooq.impl.SQLDataType.VARCHAR.length(255), this, "");
+
+	/**
+	 * The column <code>proagricrowd.INDIVIDUALS.IND_STATE</code>.
+	 */
+	public final org.jooq.TableField<com.webonise.proagricrowd.sql.tables.records.IndividualsRecord, java.lang.String> IND_STATE = createField("IND_STATE", org.jooq.impl.SQLDataType.VARCHAR.length(255), this, "");
 
 	/**
 	 * The column <code>proagricrowd.INDIVIDUALS.IND_CREATION_DATE</code>.
@@ -115,14 +145,6 @@ public class Individuals extends org.jooq.impl.TableImpl<com.webonise.proagricro
 	@Override
 	public java.util.List<org.jooq.UniqueKey<com.webonise.proagricrowd.sql.tables.records.IndividualsRecord>> getKeys() {
 		return java.util.Arrays.<org.jooq.UniqueKey<com.webonise.proagricrowd.sql.tables.records.IndividualsRecord>>asList(com.webonise.proagricrowd.sql.Keys.KEY_INDIVIDUALS_PRIMARY);
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public java.util.List<org.jooq.ForeignKey<com.webonise.proagricrowd.sql.tables.records.IndividualsRecord, ?>> getReferences() {
-		return java.util.Arrays.<org.jooq.ForeignKey<com.webonise.proagricrowd.sql.tables.records.IndividualsRecord, ?>>asList(com.webonise.proagricrowd.sql.Keys.FK_ADDRESS_ID);
 	}
 
 	/**

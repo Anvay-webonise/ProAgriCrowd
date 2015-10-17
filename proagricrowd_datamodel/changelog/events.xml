@@ -23,21 +23,38 @@
             <column name="EVENT_LOCATION" type="varchar(255)">
                 <constraints nullable="false"/>
             </column>
+            <column name="EVENT_USR_ID" type="int(11)">
+                <constraints nullable="false"/>
+            </column>
             <column name="EVENT_ORGANISER" type="int(11)">
                 <constraints nullable="false"/>
             </column>
-            <column name="EVENT_EXPERT" type="int(11)">
+            <column name="EVENT_EXPERT" type="varchar(255)">
                 <constraints nullable="false"/>
             </column>
             <column name="EVENT_ESTIMATED_COST" type="int(11)">
                 <constraints nullable="false"/>
             </column>
+            <column name="EVENT_FUNDS" type="int(11)" defaultValue="null">
+                <constraints nullable="true"/>
+            </column>
             <column name="EVENT_DATE" type="datetime" defaultValue="null">
+                <constraints nullable="true"/>
+            </column>
+            <column name="EVENT_ISCOMPLETE" type="bit(1)" defaultValue="null">
+                <constraints nullable="true"/>
+            </column>
+            <column name="EVENT_COMPLETION_DATE" type="datetime" defaultValue="null">
                 <constraints nullable="true"/>
             </column>
             <column name="EVENT_CREATION_DATE" type="datetime" defaultValue="NOW()">
                 <constraints nullable="false"/>
             </column>
         </createTable>
+        <addForeignKeyConstraint constraintName="FK_USER_ID"
+                                 baseTableName="EVENTS"
+                                 baseColumnNames="EVENT_USR_ID"
+                                 referencedTableName="USERS"
+                                 referencedColumnNames="USR_ID"/>
     </changeSet>
 </databaseChangeLog>

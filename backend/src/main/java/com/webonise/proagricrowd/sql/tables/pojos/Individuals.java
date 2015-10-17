@@ -16,15 +16,21 @@ package com.webonise.proagricrowd.sql.tables.pojos;
 @java.lang.SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Individuals implements java.io.Serializable {
 
-	private static final long serialVersionUID = -103314822;
+	private static final long serialVersionUID = 473802156;
 
 	private java.lang.Integer  indId;
 	private java.lang.String   indFname;
 	private java.lang.String   indMname;
 	private java.lang.String   indLname;
 	private java.lang.String   indEmail;
-	private java.lang.Integer  indAddress;
-	private java.lang.String   indCellno;
+	private java.lang.String   indQualification;
+	private java.lang.String   indAreaOfExperties;
+	private java.lang.Integer  indExperinceYears;
+	private java.lang.String   indAboutExperience;
+	private java.lang.Integer  indCellno;
+	private java.lang.String   indAddress;
+	private java.lang.String   indCity;
+	private java.lang.String   indState;
 	private java.sql.Timestamp indCreationDate;
 
 	public Individuals() {}
@@ -35,8 +41,14 @@ public class Individuals implements java.io.Serializable {
 		java.lang.String   indMname,
 		java.lang.String   indLname,
 		java.lang.String   indEmail,
-		java.lang.Integer  indAddress,
-		java.lang.String   indCellno,
+		java.lang.String   indQualification,
+		java.lang.String   indAreaOfExperties,
+		java.lang.Integer  indExperinceYears,
+		java.lang.String   indAboutExperience,
+		java.lang.Integer  indCellno,
+		java.lang.String   indAddress,
+		java.lang.String   indCity,
+		java.lang.String   indState,
 		java.sql.Timestamp indCreationDate
 	) {
 		this.indId = indId;
@@ -44,8 +56,14 @@ public class Individuals implements java.io.Serializable {
 		this.indMname = indMname;
 		this.indLname = indLname;
 		this.indEmail = indEmail;
-		this.indAddress = indAddress;
+		this.indQualification = indQualification;
+		this.indAreaOfExperties = indAreaOfExperties;
+		this.indExperinceYears = indExperinceYears;
+		this.indAboutExperience = indAboutExperience;
 		this.indCellno = indCellno;
+		this.indAddress = indAddress;
+		this.indCity = indCity;
+		this.indState = indState;
 		this.indCreationDate = indCreationDate;
 	}
 
@@ -89,20 +107,68 @@ public class Individuals implements java.io.Serializable {
 		this.indEmail = indEmail;
 	}
 
-	public java.lang.Integer getIndAddress() {
-		return this.indAddress;
+	public java.lang.String getIndQualification() {
+		return this.indQualification;
 	}
 
-	public void setIndAddress(java.lang.Integer indAddress) {
-		this.indAddress = indAddress;
+	public void setIndQualification(java.lang.String indQualification) {
+		this.indQualification = indQualification;
 	}
 
-	public java.lang.String getIndCellno() {
+	public java.lang.String getIndAreaOfExperties() {
+		return this.indAreaOfExperties;
+	}
+
+	public void setIndAreaOfExperties(java.lang.String indAreaOfExperties) {
+		this.indAreaOfExperties = indAreaOfExperties;
+	}
+
+	public java.lang.Integer getIndExperinceYears() {
+		return this.indExperinceYears;
+	}
+
+	public void setIndExperinceYears(java.lang.Integer indExperinceYears) {
+		this.indExperinceYears = indExperinceYears;
+	}
+
+	public java.lang.String getIndAboutExperience() {
+		return this.indAboutExperience;
+	}
+
+	public void setIndAboutExperience(java.lang.String indAboutExperience) {
+		this.indAboutExperience = indAboutExperience;
+	}
+
+	public java.lang.Integer getIndCellno() {
 		return this.indCellno;
 	}
 
-	public void setIndCellno(java.lang.String indCellno) {
+	public void setIndCellno(java.lang.Integer indCellno) {
 		this.indCellno = indCellno;
+	}
+
+	public java.lang.String getIndAddress() {
+		return this.indAddress;
+	}
+
+	public void setIndAddress(java.lang.String indAddress) {
+		this.indAddress = indAddress;
+	}
+
+	public java.lang.String getIndCity() {
+		return this.indCity;
+	}
+
+	public void setIndCity(java.lang.String indCity) {
+		this.indCity = indCity;
+	}
+
+	public java.lang.String getIndState() {
+		return this.indState;
+	}
+
+	public void setIndState(java.lang.String indState) {
+		this.indState = indState;
 	}
 
 	public java.sql.Timestamp getIndCreationDate() {
@@ -152,17 +218,53 @@ public class Individuals implements java.io.Serializable {
 		}
 		else if (!indEmail.equals(other.indEmail))
 			return false;
-		if (indAddress == null) {
-			if (other.indAddress != null)
+		if (indQualification == null) {
+			if (other.indQualification != null)
 				return false;
 		}
-		else if (!indAddress.equals(other.indAddress))
+		else if (!indQualification.equals(other.indQualification))
+			return false;
+		if (indAreaOfExperties == null) {
+			if (other.indAreaOfExperties != null)
+				return false;
+		}
+		else if (!indAreaOfExperties.equals(other.indAreaOfExperties))
+			return false;
+		if (indExperinceYears == null) {
+			if (other.indExperinceYears != null)
+				return false;
+		}
+		else if (!indExperinceYears.equals(other.indExperinceYears))
+			return false;
+		if (indAboutExperience == null) {
+			if (other.indAboutExperience != null)
+				return false;
+		}
+		else if (!indAboutExperience.equals(other.indAboutExperience))
 			return false;
 		if (indCellno == null) {
 			if (other.indCellno != null)
 				return false;
 		}
 		else if (!indCellno.equals(other.indCellno))
+			return false;
+		if (indAddress == null) {
+			if (other.indAddress != null)
+				return false;
+		}
+		else if (!indAddress.equals(other.indAddress))
+			return false;
+		if (indCity == null) {
+			if (other.indCity != null)
+				return false;
+		}
+		else if (!indCity.equals(other.indCity))
+			return false;
+		if (indState == null) {
+			if (other.indState != null)
+				return false;
+		}
+		else if (!indState.equals(other.indState))
 			return false;
 		if (indCreationDate == null) {
 			if (other.indCreationDate != null)
@@ -182,8 +284,14 @@ public class Individuals implements java.io.Serializable {
 		result = prime * result + ((indMname == null) ? 0 : indMname.hashCode());
 		result = prime * result + ((indLname == null) ? 0 : indLname.hashCode());
 		result = prime * result + ((indEmail == null) ? 0 : indEmail.hashCode());
-		result = prime * result + ((indAddress == null) ? 0 : indAddress.hashCode());
+		result = prime * result + ((indQualification == null) ? 0 : indQualification.hashCode());
+		result = prime * result + ((indAreaOfExperties == null) ? 0 : indAreaOfExperties.hashCode());
+		result = prime * result + ((indExperinceYears == null) ? 0 : indExperinceYears.hashCode());
+		result = prime * result + ((indAboutExperience == null) ? 0 : indAboutExperience.hashCode());
 		result = prime * result + ((indCellno == null) ? 0 : indCellno.hashCode());
+		result = prime * result + ((indAddress == null) ? 0 : indAddress.hashCode());
+		result = prime * result + ((indCity == null) ? 0 : indCity.hashCode());
+		result = prime * result + ((indState == null) ? 0 : indState.hashCode());
 		result = prime * result + ((indCreationDate == null) ? 0 : indCreationDate.hashCode());
 		return result;
 	}
