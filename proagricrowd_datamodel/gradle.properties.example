@@ -1,0 +1,12 @@
+##THESE ARE THE DEFAULTS OF THE PROPERTIES THAT THE PROJECT REQUIRES.
+##Database Project settings
+databaseHost=localhost
+databasePort=3306
+databaseName=demo
+databaseUsername=root
+databasePassword=admin
+datamodelVersion=1.0.0-SNAPSHOT
+
+tableFilterAud=.*_AUD
+tableFilterAudit=.*_AUDIT
+tableFilterHistory=.*_HISTORY

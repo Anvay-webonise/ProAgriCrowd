@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd
+    http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <changeSet author="sudarshan" id="usersTypeTable">
+        <tagDatabase tag="before_users_type_table"/>
+    </changeSet>
+    <changeSet author="sudarshan" id="createTableUsersType" dbms="mysql">
+        <createTable tableName="USERS_TYPE">
+            <column name="USR_TYP_ID" type="int(11)" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="USR_TYP_ID"/>
+            </column>
+            <column name="USR_TYP_NAME" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="USR_TYP_DESC" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet  author="sudarshan" id = "insertReferenceUserTypes">
+        <insert tableName="USERS_TYPE">
+            <column name="USR_TYP_NAME" value="GUEST"/>
+            <column name="USR_TYP_DESC" value="Guest user who can view the information online without login"/>
+        </insert>
+        <insert tableName="USERS_TYPE">
+            <column name="USR_TYP_NAME" value="EXPERT"/>
+            <column name="USR_TYP_DESC" value="EXPERT user who is SME on perticular area."/>
+        </insert>
+        <insert tableName="USERS_TYPE">
+            <column name="USR_TYP_NAME" value="COMPANY"/>
+            <column name="USR_TYP_DESC" value="COMPANY user can contribute, oraganize or view events"/>
+        </insert>
+        <insert tableName="USERS_TYPE">
+            <column name="USR_TYP_NAME" value="INDIVIDUAL"/>
+            <column name="USR_TYP_DESC" value="INDIVIDUAL user can contribute, oraganize or view events."/>
+        </insert>
+        <insert tableName="USERS_TYPE">
+            <column name="USR_TYP_NAME" value="ORGANIZATION"/>
+            <column name="USR_TYP_DESC" value="ORGANIZATION user can contribute, oraganize or view events"/>
+        </insert>
+        <insert tableName="USERS_TYPE">
+            <column name="USR_TYP_NAME" value="GOVT"/>
+            <column name="USR_TYP_DESC" value="GOVT user can contribute, oraganize or view events"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,94 @@
+apply plugin:'java'
+apply plugin:'idea'
+apply plugin:'eclipse'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+  mavenCentral()
+  jcenter()
+}
+
+configurations {
+    liquibase
+}
+
+dependencies {
+    liquibase 'mysql:mysql-connector-java:5.1.6'
+    liquibase 'org.liquibase:liquibase-core:3.4.0'
+}
+
+buildscript {
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath 'org.jooq:jooq-codegen:3.5.4'
+        classpath 'mysql:mysql-connector-java:5.1.6'
+    }
+}
+
+task migrate(type: JavaExec) {
+    group = "Liquibase"
+    classpath configurations.liquibase
+    main = "liquibase.integration.commandline.Main"
+    args "--changeLogFile=db.changelog-master.xml"
+    args "--username=${databaseUsername}"
+    args "--password=${databasePassword}"
+    args "--url=jdbc:mysql://${databaseHost}:${databasePort}/${databaseName}"
+    args "--driver=com.mysql.jdbc.Driver"
+    args "migrate"
+}
+task rollback(type: JavaExec) {
+    group = "Liquibase"
+    classpath configurations.liquibase
+    main = "liquibase.integration.commandline.Main"
+    args "--changeLogFile=db.changelog-master.xml"
+    args "--username=${databaseUsername}"
+    args "--password=${databasePassword}"
+    args "--url=jdbc:mysql://${databaseHost}:${databasePort}/${databaseName}"
+    args "--driver=com.mysql.jdbc.Driver"
+    args "rollback", "${project.properties.databaseTag}"
+}
+
+/*
+task generateJooqCode << {
+    group = "Liquibase"
+
+    def writer = new StringWriter()
+    def xml = new groovy.xml.MarkupBuilder(writer)
+            .configuration('xmlns': 'http://www.jooq.org/xsd/jooq-codegen-3.5.0.xsd') {
+        jdbc() {
+            driver('com.mysql.jdbc.Driver')
+            url("jdbc:mysql://${databaseHost}:${databasePort}/${databaseName}")
+            user("${databaseUsername}")
+            password("${databasePassword}")
+        }
+        generator() {
+            database() {
+                name('org.jooq.util.mysql.MySQLDatabase')
+                excludes('(?i).*(_AUD|_AUDIT|_HISTORY)')
+                inputSchema("${databaseName}")
+            }
+            generate() {
+                deprecated('false')
+            }
+            target() {
+                packageName('com.magnus.commons.sql')
+                directory('src/main/java')
+            }
+        }
+    }
+
+    org.jooq.util.GenerationTool.main(
+            javax.xml.bind.JAXB.unmarshal(
+                    new StringReader(writer.toString()),
+                    org.jooq.util.jaxb.Configuration.class
+            )
+    )
+}
+*/
+

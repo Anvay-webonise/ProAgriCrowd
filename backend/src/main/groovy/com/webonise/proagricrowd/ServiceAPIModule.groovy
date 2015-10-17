@@ -1,5 +1,6 @@
 package com.webonise.proagricrowd
 
+import com.webonise.proagricrowd.dataaccess.DataAccessModule
 import groovy.transform.CompileStatic
 import groovy.util.logging.Slf4j
 import restling.guice.modules.RestlingApplicationModule
@@ -12,7 +13,7 @@ class ServiceAPIModule extends RestlingApplicationModule {
 
     @Override
     void configureCustomBindings() {
-        //this.install(new DataAccessModule())
+        this.install(new DataAccessModule())
         //bind(AuthenticationFilter)
     }
 }

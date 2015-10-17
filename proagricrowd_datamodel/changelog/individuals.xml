@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd
+    http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <changeSet author="sudarshan" id="individualsTable">
+        <tagDatabase tag="before_individuals_table"/>
+    </changeSet>
+    <changeSet author="sudarshan" id="createTableIndividuals" dbms="mysql">
+        <createTable tableName="INDIVIDUALS">
+            <column name="IND_ID" type="int(11)" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="IND_ID"/>
+            </column>
+            <column name="IND_FNAME" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="IND_MNAME" type="varchar(255)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="IND_LNAME" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="IND_EMAIL" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="IND_ADDRESS" type="int(11)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="IND_CELLNO" type="varchar(30) ">
+                <constraints nullable="false"/>
+            </column>
+            <column name="IND_CREATION_DATE" type="datetime" defaultValue="NOW()">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <addForeignKeyConstraint constraintName="FK_ADDRESS_ID"
+                                 baseTableName="INDIVIDUALS"
+                                 baseColumnNames="IND_ADDRESS"
+                                 referencedTableName="ADDRESSES"
+                                 referencedColumnNames="ADDR_ID"/>
+
+
+    </changeSet>
+</databaseChangeLog>

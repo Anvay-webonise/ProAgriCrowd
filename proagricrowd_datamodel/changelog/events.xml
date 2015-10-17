@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd
+    http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <changeSet author="sudarshan" id="eventsTable">
+        <tagDatabase tag="before_events_table"/>
+    </changeSet>
+    <changeSet author="sudarshan" id="createTableEvents" dbms="mysql">
+        <createTable tableName="EVENTS">
+            <column name="EVENT_ID" type="int(11)" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="EVENT_ID"/>
+            </column>
+            <column name="EVENT_TITLE" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="EVENT_DESC" type="longtext">
+                <constraints nullable="true"/>
+            </column>
+            <column name="EVENT_LOCATION" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="EVENT_ORGANISER" type="int(11)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="EVENT_EXPERT" type="int(11)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="EVENT_ESTIMATED_COST" type="int(11)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="EVENT_DATE" type="datetime" defaultValue="null">
+                <constraints nullable="true"/>
+            </column>
+            <column name="EVENT_CREATION_DATE" type="datetime" defaultValue="NOW()">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>
