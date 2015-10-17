@@ -1,9 +1,9 @@
 var Header = React.createClass({
   render:function(){
     return (
-      <div>
-      HEADER
-      </div>
+		<div className="header-content">
+			
+		</div>
     );
   }
 });
