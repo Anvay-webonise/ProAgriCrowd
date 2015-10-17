@@ -6,7 +6,3 @@ databaseName=demo
 databaseUsername=root
 databasePassword=admin
 datamodelVersion=1.0.0-SNAPSHOT
-
-tableFilterAud=.*_AUD
-tableFilterAudit=.*_AUDIT
-tableFilterHistory=.*_HISTORY

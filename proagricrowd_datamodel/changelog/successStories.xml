@@ -9,35 +9,34 @@
  <changeSet author="sudarshan" id="addresses">
 		<tagDatabase tag="before_addresses"/>
  </changeSet>
- <changeSet author="sudarshan" id="createTableAddresses" dbms="mysql">
-		<createTable tableName="ADDRESSES">
-			<column name="ADDR_ID" type="int(11)" autoIncrement="true">
+ <changeSet author="sudarshan" id="createTablesSuccessStories" dbms="mysql">
+		<createTable tableName="SUCCESS_STORIES">
+			<column name="SS_ID" type="int(11)" autoIncrement="true">
 				<constraints nullable = "false" primaryKey = "true" primaryKeyName = "ADDR_ID"/>
 			</column>
-			<column name="ADDR_LINE1" type="varchar(255)">
+			<column name="SS_EVENT_ID" type="int(11)">
 				<constraints nullable = "false"/>
 			</column>
-			<column name="ADDR_LINE2" type="varchar(255)">
+			<column name="SS_DESC" type="varchar(255)">
 				<constraints nullable = "true"/>
 			</column>
-			<column name="ADDR_AREA" type="varchar(255)">
+			<column name="SS_VIDEO_LINK" type="varchar(255)">
 				<constraints nullable = "true"/>
 			</column>
-			<column name="ADDR_CITY" type="varchar(30) ">
+			<column name="SS_POTHOS_LINK" type="varchar(255) ">
 				<constraints nullable = "false"/>
 			</column>
-			<column name="ADDR_STATE" type="varchar(255)">
+			<column name="SS_RATING" type="decimal(2,2)">
 				<constraints nullable = "false"/>
 			</column>
-			<column name="ADDR_COUNTRY" type="varchar(255)">
-				<constraints nullable = "false"/>
-			</column>
-			<column name="ADDR_PINCODE" type="int(11)">
-				<constraints nullable = "false"/>
-			</column>
-			<column name="ADDR_CREATION_DATE" type="datetime" defaultValue = "NOW()">
+			<column name="SS_CREATION_DATE" type="datetime" defaultValue="NOW()">
 				<constraints nullable = "false"/>
 			</column>
 	 </createTable>
+	 <addForeignKeyConstraint constraintName="FK_EVENT_ID"
+							  baseTableName="SUCCESS_STORIES"
+							  baseColumnNames="SS_EVENT_ID"
+							  referencedTableName="EVENTS"
+							  referencedColumnNames="EVENT_ID"/>
 	</changeSet>
 </databaseChangeLog>
