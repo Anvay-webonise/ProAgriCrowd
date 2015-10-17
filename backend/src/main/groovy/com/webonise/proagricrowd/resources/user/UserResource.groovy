@@ -1,4 +1,4 @@
-package com.webonise.proagricrowd.resources.meta.user
+package com.webonise.proagricrowd.resources.user
 
 import com.google.inject.Inject
 import com.webonise.proagricrowd.dao.interfaces.UserDao

@@ -1,4 +1,4 @@
-package com.webonise.proagricrowd.resources.meta.user
+package com.webonise.proagricrowd.resources.user
 
 import restling.restlet.RestlingRouter
 
