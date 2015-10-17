@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Context>
+
+        <WatchedResource>WEB-INF/web.xml</WatchedResource>
+
+        <ResourceLink name="jdbc/mysqldatabase"
+                      global="jdbc/mysqldatabase"
+                      type="javax.sql.DataSource"
+                      factory="com.zaxxer.hikari.HikariJNDIFactory"
+                      dataSourceClassName="com.mysql.jdbc.jdbc2.optional.MysqlConnectionPoolDataSource"
+                      username ="root"
+                      password="admin"  />
+
+</Context>
